@@ -1,21 +1,38 @@
 <template>
-  <list></list>
+  <view bindtap="jump('page')">点击前往：示例1 </view>
+  <view bindtap="jump('component')">点击前往：示例2</view>
 </template>
 
 <script>
-import { createPage } from '@mpxjs/core'
+import mpx, { createPage } from '@mpxjs/core'
+import wxPageComponent from './wx/page-component?resolve'
+import wxComponentComponent from './wx/component-component?resolve'
+import aliPageComponent from './ali/page-component?resolve'
+import aliComponentComponent from './ali/component-component?resolve'
 
 createPage({
-  onLoad() {
-    //
+  methods: {
+    jump(type) {
+      const isWx = __mpx_mode__ === 'wx'
+      const pageComponentPath = isWx ? wxPageComponent : aliPageComponent
+      const componentComponentPath = isWx ? wxComponentComponent : aliComponentComponent
+      const url = type === 'page' ? pageComponentPath : componentComponentPath
+      mpx.navigateTo({
+        url
+      })
+    }
   }
 })
 </script>
 
+<style lang="stylus">
+
+</style>
+
 <script type="application/json">
   {
     "usingComponents": {
-      "list": "../components/list"
+
     }
   }
 </script>

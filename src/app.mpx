@@ -18,7 +18,11 @@ createApp({
 <script type="application/json">
   {
     "pages": [
-      "./pages/index"
+      "./pages/index",
+      "./pages/wx/page-component",
+      "./pages/wx/component-component",
+      "./pages/ali/page-component",
+      "./pages/ali/component-component"
     ]
   }
 </script>

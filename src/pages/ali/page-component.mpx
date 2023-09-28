@@ -1,0 +1,30 @@
+<template>
+  <view>page和component样式间影响</view>
+  <comp-a />
+  <comp-b />
+</template>
+
+<script>
+import { createPage } from '@mpxjs/core'
+
+createPage({
+  onLoad() {
+    //
+  }
+})
+</script>
+
+<style lang="stylus">
+.wx-child
+  color red
+</style>
+
+<script type="application/json">
+  {
+    "styleIsolation": "shared",
+    "usingComponents": {
+      "comp-a": "./components/a.mpx",
+      "comp-b": "./components/b.mpx"
+    }
+  }
+</script>
