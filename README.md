@@ -15,9 +15,9 @@ npm run serve // 小程序本地开发构建
 
 不过在解除样式隔离的情况下遇到如下几种2个平台不太能保持表现一致的场景：
 
-1. Page 和 Component 之间的样式影响（demo 当中的示例1）
+1. Page 和 Component 之间的样式影响：
 
-场景一：
+场景一：（demo 当中的示例1）
 
 在微信环境下，只需要设置 component 的 `styleIsolation: "apply-shared"`，页面的配置不需要做任何改动，页面的样式规则即可直接影响这个 component。
 
