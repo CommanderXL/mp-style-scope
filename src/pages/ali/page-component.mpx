@@ -21,7 +21,7 @@ createPage({
 
 <script type="application/json">
   {
-    "styleIsolation": "shared",
+    "styleIsolation": "apply-shared",
     "usingComponents": {
       "comp-a": "./components/a.mpx",
       "comp-b": "./components/b.mpx"

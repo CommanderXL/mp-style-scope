@@ -11,11 +11,13 @@ npm run serve // 小程序本地开发构建
 
 ### 微信和支付宝样式隔离场景：
 
-在 mpx 做基于微信跨支付宝小程序的开发过程中，为了和微信小程序默认的样式隔离特性保持一致，我们尝试将支付宝所有的页面/组件设置 `styleIsolation: "apply-shared"`。
+**在 mpx 做基于微信跨支付宝小程序的开发过程中，为了和微信小程序默认的样式隔离特性保持一致，我们尝试将支付宝所有的页面/组件设置 `styleIsolation: "apply-shared"`。以下的异同点也是基于这个前提去梳理出来的**
 
-不过在接触样式隔离的情况下遇到如下几种不太能保持表现一致的场景：
+不过在解除样式隔离的情况下遇到如下几种2个平台不太能保持表现一致的场景：
 
 1. Page 和 Component 之间的样式影响（demo 当中的示例1）
+
+场景一：
 
 在微信环境下，只需要设置 component 的 `styleIsolation: "apply-shared"`，页面的配置不需要做任何改动，页面的样式规则即可直接影响这个 component。
 
@@ -27,6 +29,10 @@ npm run serve // 小程序本地开发构建
 
 在支付宝环境下，因为页面的配置改为了 `styleIsolation: "shared"`，这也意味着页面的样式规则会影响到这个页面所引用的所有的组件。
 
+场景二：
+
+微信自定义组件的 `styleIsolation: "shared"` 配置也可以让页面样式规则影响到组件，而在支付宝的场景如果将自定义组件的配置改为 `shared`，页面的样式规则也不会影响到组件自身，除非将页面的配置改为 `shared`。
+
 
 2. Component 和 Component 之间的样式影响（demo 当中的示例2）
 
@@ -36,4 +42,4 @@ npm run serve // 小程序本地开发构建
 
 
 
-![style-scope](https://dpubstatic.udache.com/static/dpubimg/lr2CyMZ8uvTdUCa-7u053_style-scope.png)
+![style-scope](https://dpubstatic.udache.com/static/dpubimg/9LHreHGH8tUrrS_8cTe9G_style-scope-1.png)
